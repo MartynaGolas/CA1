@@ -45,7 +45,7 @@ public class MainApp
                     studentNo = temp[0];
                     int[] selectedFive = selectFiveGrades(codes, grades);
                     double average = calculateAverage(selectedFive);
-                    System.out.println(studentNo + "            " + average);
+                    System.out.println(studentNo + "            " + String.format("%.2f", average));
 
                 }
                 else if(scan.hasNext())
