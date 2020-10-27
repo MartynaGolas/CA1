@@ -12,6 +12,10 @@ public class MainApp
         {
             Scanner scan = new Scanner(new File("JC_Results.txt"));
             scan.useDelimiter(",|\r\n");
+
+
+            System.out.println("Student Number" + "    " + "Average");
+
             while(scan.hasNextLine())
             {
                 int[] temp = new int[17];
@@ -41,8 +45,7 @@ public class MainApp
                     studentNo = temp[0];
                     int[] selectedFive = selectFiveGrades(codes, grades);
                     double average = calculateAverage(selectedFive);
-
-                    System.out.println(studentNo + "\n" + average);
+                    System.out.println(studentNo + "            " + average);
 
                 }
                 else if(scan.hasNext())
