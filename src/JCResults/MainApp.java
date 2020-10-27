@@ -40,8 +40,10 @@ public class MainApp
                     }
 
                     studentNo = temp[0];
-                    System.out.println(studentNo + Arrays.toString(codes) + "\n" + Arrays.toString(grades));
                     int[] selectedFive = selectFiveGrades(codes, grades);
+                    double average = calculateAverage(selectedFive);
+
+                    System.out.println(studentNo + "\n" + average);
 
                 }
                 else if(scan.hasNext())
@@ -104,4 +106,14 @@ public class MainApp
         return selectedGrades;
     }
 
+    private static double calculateAverage(int selectedGrades[])
+    {
+        double sum = 0;
+        for(int i = 0; i < selectedGrades.length; i++)
+        {
+            sum = sum + selectedGrades[i];
+        }
+        double avg = sum / selectedGrades.length;
+        return avg;
+    }
 }
