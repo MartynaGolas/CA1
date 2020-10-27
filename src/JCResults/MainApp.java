@@ -1,6 +1,5 @@
 package JCResults;
 
-import java.util.Arrays;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -106,14 +105,15 @@ public class MainApp
         return selectedGrades;
     }
 
-    private static double calculateAverage(int selectedGrades[])
+    private static double calculateAverage(int[] selectedGrades)
     {
         double sum = 0;
+
         for(int i = 0; i < selectedGrades.length; i++)
         {
             sum = sum + selectedGrades[i];
         }
-        double avg = sum / selectedGrades.length;
-        return avg;
+
+        return sum / selectedGrades.length;
     }
 }
