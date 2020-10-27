@@ -41,6 +41,8 @@ public class MainApp
 
                     studentNo = temp[0];
                     System.out.println(studentNo + Arrays.toString(codes) + "\n" + Arrays.toString(grades));
+                    int[] selectedFive = selectFiveGrades(codes, grades);
+
                 }
                 else if(scan.hasNext())
                 {
@@ -57,6 +59,49 @@ public class MainApp
 
     }
 
-    
+    public static int[] selectFiveGrades(int[] codes, int[] grades)
+    {
+        int[] selectedGrades = new int[5];
+        int[] tempArray = new int[5];
+        int count = 0;
+        int count2 = 0;
+        int biggest1 = 0;
+        int biggest2 = 0;
+
+        for(int i = 0; i < codes.length; i++)
+        {
+            if (codes[i] == 1 || codes[i] == 2 || codes[i] == 3)
+            {
+                selectedGrades[count] = grades[i];
+                count++;
+            }
+            else
+            {
+                if(codes[i] != 218)
+                {
+                    tempArray[count2] = grades[i];
+                    count2++;
+                }
+            }
+        }
+
+        for(int j = 0; j < tempArray.length; j++)
+        {
+            if(tempArray[j] >= biggest1)
+            {
+                biggest2 = biggest1;
+                biggest1= tempArray[j];
+            }
+            else if(tempArray[j] >= biggest2)
+            {
+                biggest2 = tempArray[j];
+            }
+        }
+
+        selectedGrades[3] = biggest2;
+        selectedGrades[4] = biggest1;
+
+        return selectedGrades;
+    }
 
 }
